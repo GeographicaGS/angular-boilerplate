@@ -1,27 +1,20 @@
-# DPDWww
+# Angular boilerplate
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+## Getting started
+1. Change the project name in `package.json`, `index.html`, `.angular-cli,json` files and others if needed.
+2. Place your common components and service in the `common/components` and `common/services` folders respectively and update the `common/index.ts` file.
+3. Place the different sections inside the `sections` folder, following the same structure as `common`:
+  ```
+    sections/
+      your-section/
+        components/
+          ...
+        services/
+          ...
+        your-section.routing.module.ts
+        your-section.module.ts
+  ```
+4. Use router outlets and queryParams to navigate between map sections when possible.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## TODOs
+- [ ] Set map section in a different branch

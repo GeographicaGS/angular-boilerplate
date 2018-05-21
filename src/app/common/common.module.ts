@@ -4,15 +4,18 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptor } from './auth-interceptor';
-import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
-import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarModule, PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+
+import { LocaleService } from './services/locale.service';
+import { AuthInterceptor } from './services/auth/auth-interceptor';
+import { AuthenticationService } from './services/auth/auth.service';
+import { AuthGuard } from './services/auth/auth.guard';
 
 import { CommonRouting } from './common.routing';
 
-import { AuthenticationService } from './auth/auth.service';
-import { AuthGuard } from './auth/auth.guard';
+export function getCurrentLocaleFactory(localeService: LocaleService) {
+  return localeService.locale;
+}
 
 const components = [
   // Place your components here
@@ -43,6 +46,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       useClass: AuthInterceptor,
       multi: true
     },
+    LocaleService,
     AuthenticationService,
     AuthGuard
   ],
